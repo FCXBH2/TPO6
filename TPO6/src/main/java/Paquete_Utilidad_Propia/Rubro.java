@@ -4,17 +4,23 @@
  */
 package Paquete_Utilidad_Propia;
 
+import Paquete_Utilidad_Propia.Clases_Utilidad.Comestible;
+import com.mycompany.tpo6.Menu_General;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author DANIELALEJANDROMIRAN
  */
 public class Rubro extends javax.swing.JInternalFrame {
-
+    DefaultTableModel T1 = new DefaultTableModel();
     /**
      * Creates new form Rubro
      */
     public Rubro() {
         initComponents();
+        T1.setColumnIdentifiers(new Object[]{"Codigo","Descripcion","Precio","Stock","Rubro"});
+        JTableC.setModel(T1);
     }
 
     /**
@@ -28,16 +34,16 @@ public class Rubro extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        JTableC = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        JCombo = new javax.swing.JComboBox<>();
 
         jLabel1.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Listado de productos por Rubro");
         jLabel1.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JTableC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -45,17 +51,17 @@ public class Rubro extends javax.swing.JInternalFrame {
                 "Codigo", "Descripcion", "Precio", "Stock", "Rubro"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(JTableC);
 
         jLabel2.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel2.setText("Elija Rubro:");
 
-        jComboBox1.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Limpieza", "Perfumería" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        JCombo.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        JCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Limpieza", "Perfumería" }));
+        JCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                JComboActionPerformed(evt);
             }
         });
 
@@ -68,7 +74,7 @@ public class Rubro extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -77,7 +83,7 @@ public class Rubro extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -86,16 +92,31 @@ public class Rubro extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void JComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboActionPerformed
+        for(int i=0;i<T1.getRowCount();i++){
+            T1.removeRow(0);
+        }
+        switch((String) JCombo.getSelectedItem()){
+            case ("Comestible"):
+                for(Comestible C5:Menu_General.getC()){
+                    T1.addRow(new Object[]{C5.getCodigo(),C5.getDescripcion(),C5.getPrecio(),C5.getStock(),C5.getRubro()});
+                }
+                break;
+            case ("Liempieza"):
+                
+                break;
+            case ("Perfumeria"):
+                
+                break;
+        }
+    }//GEN-LAST:event_JComboActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> JCombo;
+    private javax.swing.JTable JTableC;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

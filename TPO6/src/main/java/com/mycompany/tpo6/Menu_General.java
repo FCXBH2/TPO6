@@ -11,6 +11,7 @@ import Paquete_Utilidad_Propia.Clases_Utilidad.Producto;
 import Paquete_Utilidad_Propia.Gestionar_Productos;
 import Paquete_Utilidad_Propia.Rubro;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.TreeSet;
 
 /**
@@ -18,7 +19,7 @@ import java.util.TreeSet;
  * @author DANIELALEJANDROMIRAN
  */
 public class Menu_General extends javax.swing.JFrame {
-    private static final ArrayList<Producto> Productos = new ArrayList(); private static final ArrayList<Comestible> C = new ArrayList(); private static final ArrayList<Limpieza> L = new ArrayList();  private static final ArrayList<Perfumeria> P = new ArrayList();
+    private static final LinkedHashSet<Producto> Productos = new LinkedHashSet(); private static final ArrayList<Comestible> C = new ArrayList(); private static final ArrayList<Limpieza> L = new ArrayList();  private static final ArrayList<Perfumeria> P = new ArrayList();
     /**
      * Creates new form Menu_General
      */
@@ -167,7 +168,7 @@ public class Menu_General extends javax.swing.JFrame {
             }
         });
     }
-    public static ArrayList<Producto> getProductos() {
+    public static LinkedHashSet<Producto> getProductos() {
         return Productos;
     }
 

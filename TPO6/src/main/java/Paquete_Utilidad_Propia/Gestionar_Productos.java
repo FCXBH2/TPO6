@@ -231,9 +231,6 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
                 break;
             }
             }
-        } else if (JBuscar.getText().equals("Agregar")){
-            
-            
         }
     }//GEN-LAST:event_JBuscarActionPerformed
 
