@@ -4,12 +4,21 @@
  */
 package com.mycompany.tpo6;
 
+import Paquete_Utilidad_Propia.Clases_Utilidad.Comestible;
+import Paquete_Utilidad_Propia.Clases_Utilidad.Limpieza;
+import Paquete_Utilidad_Propia.Clases_Utilidad.Perfumeria;
+import Paquete_Utilidad_Propia.Clases_Utilidad.Producto;
+import Paquete_Utilidad_Propia.Gestionar_Productos;
+import Paquete_Utilidad_Propia.Rubro;
+import java.util.ArrayList;
+import java.util.TreeSet;
+
 /**
  *
  * @author DANIELALEJANDROMIRAN
  */
 public class Menu_General extends javax.swing.JFrame {
-
+    private static final ArrayList<Producto> Productos = new ArrayList(); private static final ArrayList<Comestible> C = new ArrayList(); private static final ArrayList<Limpieza> L = new ArrayList();  private static final ArrayList<Perfumeria> P = new ArrayList();
     /**
      * Creates new form Menu_General
      */
@@ -26,9 +35,11 @@ public class Menu_General extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         Administracion = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
         Consultas = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -37,27 +48,48 @@ public class Menu_General extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
-        setResizable(false);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Escritorio.setMaximumSize(new java.awt.Dimension(800, 574));
+        Escritorio.setMinimumSize(new java.awt.Dimension(800, 574));
+
+        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
+        Escritorio.setLayout(EscritorioLayout);
+        EscritorioLayout.setHorizontalGroup(
+            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 800, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 568, Short.MAX_VALUE)
+        EscritorioLayout.setVerticalGroup(
+            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 574, Short.MAX_VALUE)
         );
 
         Administracion.setText("Administracion");
         Administracion.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+
+        jMenuItem4.setText("Productos");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        Administracion.add(jMenuItem4);
+
         jMenuBar1.add(Administracion);
+
+        jMenu1.setEnabled(false);
+        jMenu1.setFocusable(false);
+        jMenu1.setPreferredSize(new java.awt.Dimension(50, 6));
+        jMenuBar1.add(jMenu1);
 
         Consultas.setText("Consultas");
         Consultas.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
 
         jMenuItem1.setText("Por Rubro");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         Consultas.add(jMenuItem1);
 
         jMenuItem2.setText("Por Nombre");
@@ -74,16 +106,32 @@ public class Menu_General extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(Escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(Escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+            Gestionar_Productos GP = new Gestionar_Productos();
+            Escritorio.removeAll();
+            Escritorio.repaint();
+            GP.setVisible(true);
+            Escritorio.add(GP);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+            Rubro R1 = new Rubro();
+            Escritorio.removeAll();
+            Escritorio.repaint();
+            R1.setVisible(true);
+            Escritorio.add(R1);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,14 +167,31 @@ public class Menu_General extends javax.swing.JFrame {
             }
         });
     }
+    public static ArrayList<Producto> getProductos() {
+        return Productos;
+    }
+
+    public static ArrayList<Comestible> getC() {
+        return C;
+    }
+
+    public static ArrayList<Limpieza> getL() {
+        return L;
+    }
+
+    public static ArrayList<Perfumeria> getP() {
+        return P;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Administracion;
     private javax.swing.JMenu Consultas;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }
