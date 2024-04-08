@@ -257,59 +257,67 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
 
     private void JGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JGuardarActionPerformed
         
-        
-        switch((String) JRubro.getSelectedItem()){
+        try{
+            switch((String) JRubro.getSelectedItem()){
                 case ("Comestible"):
-                    Producto C1 = new Comestible(Integer.valueOf(JCodigo.getText()),JDescripcion.getText(),Double.valueOf(JPrecio.getText()),Integer.valueOf(JStock.getText()),(String)JRubro.getSelectedItem());
-                    Menu_General.getProductos().add(C1);
-                    for(Producto P2: Menu_General.getProductos()){
-                    if(P2 instanceof Comestible){
-                    Menu_General.getC().add((Comestible) P2);
+                    Producto C1 = new Comestible(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
+                    if(Menu_General.getProductos().isEmpty()==false){
+                        for(Producto P3:Menu_General.getProductos()){
+                        if(Integer.parseInt(JCodigo.getText())!=P3.getCodigo()){
+                            Menu_General.getProductos().add(C1);
+                            Menu_General.getC().add((Comestible) C1);
+                            JOptionPane.showMessageDialog(this, "Producto Agregado.");
+                        } else if(Integer.parseInt(JCodigo.getText())==P3.getCodigo()) {
+                            JOptionPane.showMessageDialog(this, "El producto ya esta en el mercado.");
+                        }
                     }
-                    if(P2 instanceof Limpieza){
-                    Menu_General.getL().add((Limpieza) P2);
+                    } else {
+                        Menu_General.getProductos().add(C1);
+                        Menu_General.getC().add((Comestible) C1);
+                        JOptionPane.showMessageDialog(this, "Producto Agregado.");
                     }
-                    if(P2 instanceof Perfumeria){
-                    Menu_General.getP().add((Perfumeria) P2);
-                    }
-                    }
-                    JOptionPane.showMessageDialog(this, "Producto Agregado.");
                     break;
                 case ("Limpieza"):
-                    C1 = new Limpieza(Integer.valueOf(JCodigo.getText()),JDescripcion.getText(),Double.valueOf(JPrecio.getText()),Integer.valueOf(JStock.getText()),(String)JRubro.getSelectedItem());
-                    Menu_General.getProductos().add(C1);
-                    for(Producto P2: Menu_General.getProductos()){
-                    if(P2 instanceof Comestible){
-                    Menu_General.getC().add((Comestible) P2);
+                    C1 = new Limpieza(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
+                    if(Menu_General.getProductos().isEmpty()==false){
+                        for(Producto P3:Menu_General.getProductos()){
+                        if(Integer.parseInt(JCodigo.getText())!=P3.getCodigo()){
+                            Menu_General.getProductos().add(C1);
+                            Menu_General.getL().add((Limpieza) C1);
+                            JOptionPane.showMessageDialog(this, "Producto Agregado.");
+                        } else if(Integer.parseInt(JCodigo.getText())==P3.getCodigo()) {
+                            JOptionPane.showMessageDialog(this, "El producto ya esta en el mercado.");
+                        }
                     }
-                    if(P2 instanceof Limpieza){
-                    Menu_General.getL().add((Limpieza) P2);
+                    } else {
+                        Menu_General.getProductos().add(C1);
+                        Menu_General.getL().add((Limpieza) C1);
+                        JOptionPane.showMessageDialog(this, "Producto Agregado.");
                     }
-                    if(P2 instanceof Perfumeria){
-                    Menu_General.getP().add((Perfumeria) P2);
-                    }
-                    }
-                    JOptionPane.showMessageDialog(this, "Producto Agregado.");
+                    
                     break;
                 case ("Perfumeria"):
-                    C1 = new Perfumeria(Integer.valueOf(JCodigo.getText()),JDescripcion.getText(),Double.valueOf(JPrecio.getText()),Integer.valueOf(JStock.getText()),(String)JRubro.getSelectedItem());
-                    Menu_General.getProductos().add(C1);
-                    for(Producto P2: Menu_General.getProductos()){
-                    if(P2 instanceof Comestible){
-                    Menu_General.getC().add((Comestible) P2);
+                    C1 = new Perfumeria(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
+                    if(Menu_General.getProductos().isEmpty()==false){
+                        for(Producto P3:Menu_General.getProductos()){
+                        if(Integer.parseInt(JCodigo.getText())!=P3.getCodigo()){
+                            Menu_General.getProductos().add(C1);
+                            Menu_General.getP().add((Perfumeria) C1);
+                            JOptionPane.showMessageDialog(this, "Producto Agregado.");
+                        } else if(Integer.parseInt(JCodigo.getText())==P3.getCodigo()) {
+                            JOptionPane.showMessageDialog(this, "El producto ya esta en el mercado.");
+                        }
                     }
-                    if(P2 instanceof Limpieza){
-                    Menu_General.getL().add((Limpieza) P2);
+                    } else {
+                        Menu_General.getProductos().add(C1);
+                        Menu_General.getC().add((Comestible) C1);
+                        JOptionPane.showMessageDialog(this, "Producto Agregado.");
                     }
-                    if(P2 instanceof Perfumeria){
-                    Menu_General.getP().add((Perfumeria) P2);
-                    }
-                    }
-                    JOptionPane.showMessageDialog(this, "Producto Agregado.");
                     break;
             }
-        
-        
+        }catch(NumberFormatException E){
+            System.out.println("Numeros Erroneos.");
+        }
     }//GEN-LAST:event_JGuardarActionPerformed
 
 

@@ -9,6 +9,7 @@ import Paquete_Utilidad_Propia.Clases_Utilidad.Limpieza;
 import Paquete_Utilidad_Propia.Clases_Utilidad.Perfumeria;
 import Paquete_Utilidad_Propia.Clases_Utilidad.Producto;
 import Paquete_Utilidad_Propia.Gestionar_Productos;
+import Paquete_Utilidad_Propia.Nombre;
 import Paquete_Utilidad_Propia.Rubro;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -79,7 +80,7 @@ public class Menu_General extends javax.swing.JFrame {
 
         jMenu1.setEnabled(false);
         jMenu1.setFocusable(false);
-        jMenu1.setPreferredSize(new java.awt.Dimension(50, 6));
+        jMenu1.setPreferredSize(new java.awt.Dimension(80, 6));
         jMenuBar1.add(jMenu1);
 
         Consultas.setText("Consultas");
@@ -94,6 +95,11 @@ public class Menu_General extends javax.swing.JFrame {
         Consultas.add(jMenuItem1);
 
         jMenuItem2.setText("Por Nombre");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         Consultas.add(jMenuItem2);
 
         jMenuItem3.setText("Por Precio");
@@ -133,6 +139,14 @@ public class Menu_General extends javax.swing.JFrame {
             R1.setVisible(true);
             Escritorio.add(R1);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        Nombre N1 = new Nombre();
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        N1.setVisible(true);
+        Escritorio.add(N1);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
