@@ -5,6 +5,8 @@
 package Paquete_Utilidad_Propia;
 
 import Paquete_Utilidad_Propia.Clases_Utilidad.Comestible;
+import Paquete_Utilidad_Propia.Clases_Utilidad.Limpieza;
+import Paquete_Utilidad_Propia.Clases_Utilidad.Perfumeria;
 import com.mycompany.tpo6.Menu_General;
 import javax.swing.table.DefaultTableModel;
 
@@ -58,7 +60,7 @@ public class Rubro extends javax.swing.JInternalFrame {
         jLabel2.setText("Elija Rubro:");
 
         JCombo.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
-        JCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Limpieza", "Perfumería" }));
+        JCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Limpieza", "Perfumeria" }));
         JCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JComboActionPerformed(evt);
@@ -98,15 +100,28 @@ public class Rubro extends javax.swing.JInternalFrame {
         }
         switch((String) JCombo.getSelectedItem()){
             case ("Comestible"):
+                for(int i=0;i<T1.getRowCount();i++){
+                     T1.removeRow(0);
+                }
                 for(Comestible C5:Menu_General.getC()){
                     T1.addRow(new Object[]{C5.getCodigo(),C5.getDescripcion(),C5.getPrecio(),C5.getStock(),C5.getRubro()});
                 }
                 break;
-            case ("Liempieza"):
-                
+            case ("Limpieza"):
+                for(int i=0;i<T1.getRowCount();i++){
+                     T1.removeRow(0);
+                }
+                for(Limpieza C5:Menu_General.getL()){
+                    T1.addRow(new Object[]{C5.getCodigo(),C5.getDescripcion(),C5.getPrecio(),C5.getStock(),C5.getRubro()});
+                }
                 break;
             case ("Perfumeria"):
-                
+                for(int i=0;i<T1.getRowCount();i++){
+                     T1.removeRow(0);
+                }
+                for(Perfumeria C5:Menu_General.getP()){
+                    T1.addRow(new Object[]{C5.getCodigo(),C5.getDescripcion(),C5.getPrecio(),C5.getStock(),C5.getRubro()});
+                }
                 break;
         }
     }//GEN-LAST:event_JComboActionPerformed

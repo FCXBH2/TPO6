@@ -111,7 +111,7 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
         JStock.setBorder(new javax.swing.border.MatteBorder(null));
 
         JRubro.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
-        JRubro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Limpieza", "Perfumería" }));
+        JRubro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Limpieza", "Perfumeria" }));
         JRubro.setBorder(new javax.swing.border.MatteBorder(null));
 
         JNuevo.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
@@ -278,39 +278,39 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
                     }
                     break;
                 case ("Limpieza"):
-                    C1 = new Limpieza(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
+                    Producto C2 = new Limpieza(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
                     if(Menu_General.getProductos().isEmpty()==false){
                         for(Producto P3:Menu_General.getProductos()){
                         if(Integer.parseInt(JCodigo.getText())!=P3.getCodigo()){
-                            Menu_General.getProductos().add(C1);
-                            Menu_General.getL().add((Limpieza) C1);
+                            Menu_General.getProductos().add(C2);
+                            Menu_General.getL().add((Limpieza) C2);
                             JOptionPane.showMessageDialog(this, "Producto Agregado.");
                         } else if(Integer.parseInt(JCodigo.getText())==P3.getCodigo()) {
                             JOptionPane.showMessageDialog(this, "El producto ya esta en el mercado.");
                         }
                     }
                     } else {
-                        Menu_General.getProductos().add(C1);
-                        Menu_General.getL().add((Limpieza) C1);
+                        Menu_General.getProductos().add(C2);
+                        Menu_General.getL().add((Limpieza) C2);
                         JOptionPane.showMessageDialog(this, "Producto Agregado.");
                     }
                     
                     break;
                 case ("Perfumeria"):
-                    C1 = new Perfumeria(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
+                    Producto C3 = new Perfumeria(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
                     if(Menu_General.getProductos().isEmpty()==false){
                         for(Producto P3:Menu_General.getProductos()){
                         if(Integer.parseInt(JCodigo.getText())!=P3.getCodigo()){
-                            Menu_General.getProductos().add(C1);
-                            Menu_General.getP().add((Perfumeria) C1);
+                            Menu_General.getProductos().add(C3);
+                            Menu_General.getP().add((Perfumeria) C3);
                             JOptionPane.showMessageDialog(this, "Producto Agregado.");
                         } else if(Integer.parseInt(JCodigo.getText())==P3.getCodigo()) {
                             JOptionPane.showMessageDialog(this, "El producto ya esta en el mercado.");
                         }
                     }
                     } else {
-                        Menu_General.getProductos().add(C1);
-                        Menu_General.getC().add((Comestible) C1);
+                        Menu_General.getProductos().add(C3);
+                        Menu_General.getP().add((Perfumeria) C3);
                         JOptionPane.showMessageDialog(this, "Producto Agregado.");
                     }
                     break;

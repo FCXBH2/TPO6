@@ -47,6 +47,7 @@ public class Nombre extends javax.swing.JInternalFrame {
         jLabel2.setText("Primeros caracteres");
         jLabel2.setBorder(new javax.swing.border.MatteBorder(null));
 
+        JCaracterBuscar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         JCaracterBuscar.setBorder(new javax.swing.border.MatteBorder(null));
         JCaracterBuscar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -102,41 +103,27 @@ public class Nombre extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JCaracterBuscarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JCaracterBuscarFocusGained
-        String Nick = JCaracterBuscar.getText();
         
-        for(int i=0;i<DTM.getRowCount();i++){
-            DTM.removeRow(0);
-        }
-        for(Producto EarthStone:Menu_General.getProductos()){
-            if(EarthStone.getDescripcion().substring(0,Nick.length()).equals(Nick.substring(0, Nick.length()))){
-                DTM.addRow(new Object[]{EarthStone.getCodigo(),EarthStone.getDescripcion(),EarthStone.getPrecio(),EarthStone.getStock(),EarthStone.getRubro()});
-            }
-        }
     }//GEN-LAST:event_JCaracterBuscarFocusGained
 
     private void JCaracterBuscarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JCaracterBuscarFocusLost
-        String Nick = JCaracterBuscar.getText();
         
-        for(int i=0;i<DTM.getRowCount();i++){
-            DTM.removeRow(0);
-        }
-        for(Producto EarthStone:Menu_General.getProductos()){
-            if(EarthStone.getDescripcion().substring(0,Nick.length()).equals(Nick.substring(0, Nick.length()))){
-                DTM.addRow(new Object[]{EarthStone.getCodigo(),EarthStone.getDescripcion(),EarthStone.getPrecio(),EarthStone.getStock(),EarthStone.getRubro()});
-            }
-        }
     }//GEN-LAST:event_JCaracterBuscarFocusLost
 
     private void JCaracterBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCaracterBuscarKeyPressed
         if(evt.getKeyCode()==10){
             String Nick = JCaracterBuscar.getText();
-        
-        for(int i=0;i<DTM.getRowCount();i++){
-            DTM.removeRow(0);
-        }
-        for(Producto EarthStone:Menu_General.getProductos()){
-            if(EarthStone.getDescripcion().substring(0,Nick.length()).equals(Nick.substring(0, Nick.length()))){
-                DTM.addRow(new Object[]{EarthStone.getCodigo(),EarthStone.getDescripcion(),EarthStone.getPrecio(),EarthStone.getStock(),EarthStone.getRubro()});
+            for(int i=0;i<DTM.getRowCount();i++){
+                DTM.removeRow(0);
+            }
+            for(Producto Proud:Menu_General.getProductos()){
+                if(Nick.substring(0,Nick.length()).equals(Proud.getDescripcion().substring(0,Nick.length()))){
+                        DTM.addRow(new Object[]{Proud.getCodigo(),Proud.getDescripcion(),Proud.getPrecio(),Proud.getStock(),Proud.getRubro()});
+                        break;
+                    } else if (!Nick.substring(0,Nick.length()).equals(Proud.getDescripcion().substring(0,Nick.length()))){
+                        for(int j=0;j<DTM.getRowCount();j++){
+                            DTM.removeRow(0);
+                        }
             }
         }
         }
