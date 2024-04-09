@@ -44,7 +44,7 @@ public class Nombre extends javax.swing.JInternalFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Listado por Nombre");
 
-        jLabel2.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Primeros caracteres");
         jLabel2.setBorder(new javax.swing.border.MatteBorder(null));
@@ -73,13 +73,13 @@ public class Nombre extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JCaracterBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 122, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

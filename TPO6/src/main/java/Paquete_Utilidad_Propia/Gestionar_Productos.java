@@ -109,7 +109,7 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
         JStock.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         JStock.setBorder(new javax.swing.border.MatteBorder(null));
 
-        JRubro.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        JRubro.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         JRubro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Limpieza", "Perfumeria" }));
         JRubro.setBorder(new javax.swing.border.MatteBorder(null));
 
@@ -146,35 +146,37 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(JCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
-                        .addComponent(JBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(JDescripcion)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(JPrecio)
-                            .addComponent(JRubro, 0, 180, Short.MAX_VALUE)
-                            .addComponent(JStock, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 68, Short.MAX_VALUE)))
-                .addGap(241, 241, 241))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(JNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addComponent(JEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                .addGap(63, 63, 63)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(JNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(103, 103, 103)
+                                .addComponent(JEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                                .addGap(10, 10, 10))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(34, 34, 34)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(JCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(25, 25, 25)
+                                        .addComponent(JBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(JDescripcion)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(JPrecio)
+                                            .addComponent(JRubro, 0, 180, Short.MAX_VALUE)
+                                            .addComponent(JStock, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 68, Short.MAX_VALUE)))))
+                        .addGap(93, 93, 93)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -226,7 +228,7 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
                 }
             }
         } else if (JBuscar.getText().equals("Guardar")){
-            try{
+            try{ //He usado 3 clases que heredan de producto, para poder identificar los rubros, usando instanceof.
                 switch((String) JRubro.getSelectedItem()){
                     case ("Comestible"):
                             Producto C1 = new Comestible(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
@@ -256,8 +258,9 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
                             }
                             break;
             }
-        }catch(NumberFormatException E){
-            System.out.println("Numeros Erroneos.");
+        }catch(NumberFormatException E){ //No recuerdo como hacer focus en un textfield cuando una excepcion ocurre en dicho textfield.
+            JOptionPane.showMessageDialog(this, "Numero Erroneo.");
+            
         }
         }
     }//GEN-LAST:event_JBuscarActionPerformed

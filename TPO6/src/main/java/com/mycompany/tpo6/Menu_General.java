@@ -14,7 +14,7 @@ import java.util.TreeSet;
  *
  * @author DANIELALEJANDROMIRAN
  */
-public class Menu_General extends javax.swing.JFrame {
+public class Menu_General extends javax.swing.JFrame { //Me ha costado hacerlo solo, pero hoy dia clase 09/04/2024 el profesor dio una explicacion de como utilizar TreeSet de la manera correcta(asique pude terminarlo).
     private static final TreeSet<Producto> Productos = new TreeSet();
     /**
      * Creates new form Menu_General

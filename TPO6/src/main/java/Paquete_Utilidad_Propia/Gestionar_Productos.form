@@ -32,44 +32,49 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jLabel1" max="32767" attributes="0"/>
-          <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jLabel4" alignment="0" pref="142" max="32767" attributes="0"/>
-                  <Component id="jLabel6" alignment="0" pref="142" max="32767" attributes="0"/>
-                  <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="JCodigo" min="-2" pref="110" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="JBuscar" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="JDescripcion" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="JPrecio" max="32767" attributes="0"/>
-                          <Component id="JRubro" alignment="0" pref="180" max="32767" attributes="0"/>
-                          <Component id="JStock" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="68" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Component id="JNuevo" min="-2" pref="142" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-              <Component id="JEliminar" pref="163" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-              <Component id="jButton5" min="-2" pref="142" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
-              <Component id="jLabel5" min="-2" pref="142" max="-2" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel5" min="-2" pref="142" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JNuevo" min="-2" pref="142" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                              <Component id="JEliminar" pref="163" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel4" alignment="0" pref="142" max="32767" attributes="0"/>
+                                  <Component id="jLabel6" alignment="0" pref="142" max="32767" attributes="0"/>
+                                  <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="JCodigo" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Component id="JBuscar" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="JDescripcion" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="JPrecio" max="32767" attributes="0"/>
+                                          <Component id="JRubro" alignment="0" pref="180" max="32767" attributes="0"/>
+                                          <Component id="JStock" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="68" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                      <Component id="jButton5" min="-2" pref="142" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -270,7 +275,7 @@
     <Component class="javax.swing.JComboBox" name="JRubro">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="DialogInput" size="18" style="0"/>
+          <Font name="DialogInput" size="18" style="1"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">

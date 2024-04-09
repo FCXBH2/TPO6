@@ -66,9 +66,9 @@ public class Rubro extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel2.setText("Elija Rubro:");
+        jLabel2.setText("Elegir Rubro:");
 
-        JCombo.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        JCombo.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         JCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Limpieza", "Perfumeria" }));
         JCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
