@@ -136,6 +136,11 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
         jButton4.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         jButton4.setText("Eliminar");
         jButton4.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         jButton5.setText("Salir");
@@ -291,6 +296,15 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
             System.out.println("Numeros Erroneos.");
         }
     }//GEN-LAST:event_JGuardarActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        for(Producto P2: Menu_General.getProductos()){
+            if(P2.getCodigo()==Integer.parseInt(JCodigo.getText())){
+                Menu_General.getProductos().remove(P2);
+                break;
+            }
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

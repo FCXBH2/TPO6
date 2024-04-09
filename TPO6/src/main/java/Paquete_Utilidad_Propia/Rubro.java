@@ -24,6 +24,14 @@ public class Rubro extends javax.swing.JInternalFrame {
         initComponents();
         T1.setColumnIdentifiers(new Object[]{"Codigo","Descripcion","Precio","Stock","Rubro"});
         JTableC.setModel(T1);
+        for(int i=0;i<T1.getRowCount();i++){
+            T1.removeRow(0);
+        }
+        for(Producto C5:Menu_General.getProductos()){
+            if(C5 instanceof Comestible){
+                T1.addRow(new Object[]{C5.getCodigo(),C5.getDescripcion(),C5.getPrecio(),C5.getStock(),C5.getRubro()});
+            }
+        }
     }
 
     /**
