@@ -3,23 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.tpo6;
-
-import Paquete_Utilidad_Propia.Clases_Utilidad.Comestible;
-import Paquete_Utilidad_Propia.Clases_Utilidad.Limpieza;
-import Paquete_Utilidad_Propia.Clases_Utilidad.Perfumeria;
 import Paquete_Utilidad_Propia.Clases_Utilidad.Producto;
 import Paquete_Utilidad_Propia.Gestionar_Productos;
 import Paquete_Utilidad_Propia.Nombre;
+import Paquete_Utilidad_Propia.Precio;
 import Paquete_Utilidad_Propia.Rubro;
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
+import java.util.TreeSet;
 
 /**
  *
  * @author DANIELALEJANDROMIRAN
  */
 public class Menu_General extends javax.swing.JFrame {
-    private static final LinkedHashSet<Producto> Productos = new LinkedHashSet(); private static final ArrayList<Comestible> C = new ArrayList(); private static final ArrayList<Limpieza> L = new ArrayList();  private static final ArrayList<Perfumeria> P = new ArrayList();
+    private static final TreeSet<Producto> Productos = new TreeSet();
     /**
      * Creates new form Menu_General
      */
@@ -102,6 +98,11 @@ public class Menu_General extends javax.swing.JFrame {
         Consultas.add(jMenuItem2);
 
         jMenuItem3.setText("Por Precio");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         Consultas.add(jMenuItem3);
 
         jMenuBar1.add(Consultas);
@@ -124,11 +125,11 @@ public class Menu_General extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-            Gestionar_Productos GP = new Gestionar_Productos();
+            Gestionar_Productos Gestionar_Producto = new Gestionar_Productos();
             Escritorio.removeAll();
             Escritorio.repaint();
-            GP.setVisible(true);
-            Escritorio.add(GP);
+            Gestionar_Producto.setVisible(true);
+            Escritorio.add(Gestionar_Producto);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -146,6 +147,14 @@ public class Menu_General extends javax.swing.JFrame {
         N1.setVisible(true);
         Escritorio.add(N1);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        Precio P1 = new Precio();
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        P1.setVisible(true);
+        Escritorio.add(P1);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,22 +190,9 @@ public class Menu_General extends javax.swing.JFrame {
             }
         });
     }
-    public static LinkedHashSet<Producto> getProductos() {
+    public static TreeSet<Producto> getProductos() {
         return Productos;
     }
-
-    public static ArrayList<Comestible> getC() {
-        return C;
-    }
-
-    public static ArrayList<Limpieza> getL() {
-        return L;
-    }
-
-    public static ArrayList<Perfumeria> getP() {
-        return P;
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Administracion;
     private javax.swing.JMenu Consultas;

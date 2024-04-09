@@ -4,16 +4,19 @@
  */
 package Paquete_Utilidad_Propia.Clases_Utilidad;
 
+import java.util.Comparator;
+import java.util.Objects;
+
 /**
  *
  * @author DANIELALEJANDROMIRAN
  */
-public class Producto {
-    private int Codigo;
-    private String Descripcion;
-    private double Precio;
-    private int Stock;
-    private String Rubro;
+public class Producto implements Comparable<Producto> {
+    protected int Codigo;
+    protected String Descripcion;
+    protected double Precio;
+    protected int Stock;
+    protected String Rubro;
 
     public Producto(int Codigo, String Descripcion, double Precio, int Stock, String Rubro) {
         this.Codigo = Codigo;
@@ -22,10 +25,6 @@ public class Producto {
         this.Stock = Stock;
         this.Rubro = Rubro;
     }
-
-    public Producto() {
-    }
-    
     public int getCodigo() {
         return Codigo;
     }
@@ -44,6 +43,14 @@ public class Producto {
 
     public String getRubro() {
         return Rubro;
+    }
+    @Override
+    public int compareTo(Producto P1) {
+         if(P1.getCodigo()==Codigo) return 0;
+         if(P1.getCodigo()>Codigo) return 1;
+         if(P1.getCodigo()<Codigo) return -1;
+        return -1;
+         
     }
     
 }

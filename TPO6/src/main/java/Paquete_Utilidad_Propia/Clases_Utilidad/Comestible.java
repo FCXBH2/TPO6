@@ -8,7 +8,7 @@ package Paquete_Utilidad_Propia.Clases_Utilidad;
  *
  * @author DANIELALEJANDROMIRAN
  */
-public class Comestible extends Producto {
+public final class Comestible extends Producto {
     
     public Comestible(int Codigo, String Descripcion, double Precio, int Stock, String Rubro) {
         super(Codigo, Descripcion, Precio, Stock, Rubro);

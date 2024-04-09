@@ -7,6 +7,7 @@ package Paquete_Utilidad_Propia;
 import Paquete_Utilidad_Propia.Clases_Utilidad.Comestible;
 import Paquete_Utilidad_Propia.Clases_Utilidad.Limpieza;
 import Paquete_Utilidad_Propia.Clases_Utilidad.Perfumeria;
+import Paquete_Utilidad_Propia.Clases_Utilidad.Producto;
 import com.mycompany.tpo6.Menu_General;
 import javax.swing.table.DefaultTableModel;
 
@@ -103,24 +104,30 @@ public class Rubro extends javax.swing.JInternalFrame {
                 for(int i=0;i<T1.getRowCount();i++){
                      T1.removeRow(0);
                 }
-                for(Comestible C5:Menu_General.getC()){
-                    T1.addRow(new Object[]{C5.getCodigo(),C5.getDescripcion(),C5.getPrecio(),C5.getStock(),C5.getRubro()});
+                for(Producto C5:Menu_General.getProductos()){
+                    if(C5 instanceof Comestible){
+                        T1.addRow(new Object[]{C5.getCodigo(),C5.getDescripcion(),C5.getPrecio(),C5.getStock(),C5.getRubro()});
+                    }
                 }
                 break;
             case ("Limpieza"):
                 for(int i=0;i<T1.getRowCount();i++){
                      T1.removeRow(0);
                 }
-                for(Limpieza C5:Menu_General.getL()){
-                    T1.addRow(new Object[]{C5.getCodigo(),C5.getDescripcion(),C5.getPrecio(),C5.getStock(),C5.getRubro()});
+                for(Producto C5:Menu_General.getProductos()){
+                    if(C5 instanceof Limpieza){
+                        T1.addRow(new Object[]{C5.getCodigo(),C5.getDescripcion(),C5.getPrecio(),C5.getStock(),C5.getRubro()});
+                    }
                 }
                 break;
             case ("Perfumeria"):
                 for(int i=0;i<T1.getRowCount();i++){
                      T1.removeRow(0);
                 }
-                for(Perfumeria C5:Menu_General.getP()){
-                    T1.addRow(new Object[]{C5.getCodigo(),C5.getDescripcion(),C5.getPrecio(),C5.getStock(),C5.getRubro()});
+                for(Producto C5:Menu_General.getProductos()){
+                    if(C5 instanceof Perfumeria){
+                        T1.addRow(new Object[]{C5.getCodigo(),C5.getDescripcion(),C5.getPrecio(),C5.getStock(),C5.getRubro()});
+                    }
                 }
                 break;
         }

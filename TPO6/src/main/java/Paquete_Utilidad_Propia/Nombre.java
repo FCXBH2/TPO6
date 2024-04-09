@@ -112,20 +112,7 @@ public class Nombre extends javax.swing.JInternalFrame {
 
     private void JCaracterBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCaracterBuscarKeyPressed
         if(evt.getKeyCode()==10){
-            String Nick = JCaracterBuscar.getText();
-            for(int i=0;i<DTM.getRowCount();i++){
-                DTM.removeRow(0);
-            }
-            for(Producto Proud:Menu_General.getProductos()){
-                if(Nick.substring(0,Nick.length()).equals(Proud.getDescripcion().substring(0,Nick.length()))){
-                        DTM.addRow(new Object[]{Proud.getCodigo(),Proud.getDescripcion(),Proud.getPrecio(),Proud.getStock(),Proud.getRubro()});
-                        break;
-                    } else if (!Nick.substring(0,Nick.length()).equals(Proud.getDescripcion().substring(0,Nick.length()))){
-                        for(int j=0;j<DTM.getRowCount();j++){
-                            DTM.removeRow(0);
-                        }
-            }
-        }
+            
         }
     }//GEN-LAST:event_JCaracterBuscarKeyPressed
 
