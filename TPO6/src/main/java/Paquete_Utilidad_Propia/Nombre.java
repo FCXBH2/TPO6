@@ -108,6 +108,9 @@ public class Nombre extends javax.swing.JInternalFrame {
                         
                         TSP.add(P1);
                      }
+                    if(P1.getDescripcion().contains(JCaracterBuscar.getText().substring(0))){
+                        
+                    }
                  }
             }
             for(Producto P2: TSP){
