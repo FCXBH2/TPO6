@@ -100,6 +100,7 @@ public class Nombre extends javax.swing.JInternalFrame {
 
         
         if(evt.getKeyCode()==10){
+            TreeSet<Producto> TSP = new TreeSet();
             for(int i=0;i<DTM.getRowCount();i++){
                 DTM.removeRow(0);
             }
@@ -107,12 +108,14 @@ public class Nombre extends javax.swing.JInternalFrame {
                 if(P1.getDescripcion().length()>=JCaracterBuscar.getText().length()){
                     if(JCaracterBuscar.getText().substring(0,JCaracterBuscar.getText().length()).equals(P1.getDescripcion().substring(0,JCaracterBuscar.getText().length()))){
                         
-                        DTM.addRow(new Object[]{P1.getCodigo(),P1.getDescripcion(),P1.getPrecio(),P1.getStock(),P1.getRubro()});
-                        
-                    }
-                    }
-                }
+                        TSP.add(P1);
+                     }
+                 }
             }
+            for(Producto P2: TSP){
+                DTM.addRow(new Object[]{P2.getCodigo(),P2.getDescripcion(),P2.getPrecio(),P2.getStock(),P2.getRubro()});
+            }
+        }
     }//GEN-LAST:event_JCaracterBuscarKeyPressed
 
 
