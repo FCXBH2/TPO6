@@ -46,8 +46,7 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
         JStock = new javax.swing.JTextField();
         JRubro = new javax.swing.JComboBox<>();
         JNuevo = new javax.swing.JButton();
-        JGuardar = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        JEliminar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
@@ -115,7 +114,7 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
         JRubro.setBorder(new javax.swing.border.MatteBorder(null));
 
         JNuevo.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
-        JNuevo.setText("Nuevo");
+        JNuevo.setText("Cambiar");
         JNuevo.setBorder(new javax.swing.border.MatteBorder(null));
         JNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,28 +122,23 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
             }
         });
 
-        JGuardar.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
-        JGuardar.setText("Guardar");
-        JGuardar.setBorder(new javax.swing.border.MatteBorder(null));
-        JGuardar.setEnabled(false);
-        JGuardar.addActionListener(new java.awt.event.ActionListener() {
+        JEliminar.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        JEliminar.setText("Eliminar");
+        JEliminar.setBorder(new javax.swing.border.MatteBorder(null));
+        JEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JGuardarActionPerformed(evt);
-            }
-        });
-
-        jButton4.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
-        jButton4.setText("Eliminar");
-        jButton4.setBorder(new javax.swing.border.MatteBorder(null));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                JEliminarActionPerformed(evt);
             }
         });
 
         jButton5.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         jButton5.setText("Salir");
         jButton5.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -152,39 +146,35 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(JNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(JCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(25, 25, 25)
-                                        .addComponent(JBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(JDescripcion)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(JPrecio)
-                                                .addComponent(JRubro, 0, 180, Short.MAX_VALUE)
-                                                .addComponent(JStock, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(0, 0, Short.MAX_VALUE)))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(JGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(JCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
+                        .addComponent(JBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(JDescripcion)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JPrecio)
+                            .addComponent(JRubro, 0, 180, Short.MAX_VALUE)
+                            .addComponent(JStock, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 68, Short.MAX_VALUE)))
+                .addGap(241, 241, 241))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(JNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(JEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                .addGap(63, 63, 63)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -215,8 +205,7 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -228,43 +217,18 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
         
         if(JBuscar.getText().equals("Buscar")){
             for(Producto P1:Menu_General.getProductos()){
-            if(P1.getCodigo()==Integer.parseInt(JCodigo.getText())){
+                if(P1.getCodigo()==Integer.parseInt(JCodigo.getText())){
                 JDescripcion.setText(P1.getDescripcion());
                 JPrecio.setText(""+P1.getPrecio());
                 JRubro.setSelectedItem(P1.getRubro());
                 JStock.setText(""+P1.getStock());
                 break;
+                }
             }
-            }
-        }
-    }//GEN-LAST:event_JBuscarActionPerformed
-
-    private void JNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JNuevoActionPerformed
-        if(JBuscar.getText().equals("Buscar")){
-            JBuscar.setText("Agregar");
-            JDescripcion.setText("");
-            JPrecio.setText("");
-            JStock.setText("");
-            JBuscar.setEnabled(false);
-            JGuardar.setEnabled(true);
-            JNuevo.setText("Busqueda");
-        } else if(JBuscar.getText().equals("Agregar")){
-            JBuscar.setText("Buscar");
-            JDescripcion.setText("");
-            JPrecio.setText("");
-            JStock.setText("");
-            JGuardar.setEnabled(false);
-            JBuscar.setEnabled(true);
-            JNuevo.setText("Nuevo");
-        }
-        
-    }//GEN-LAST:event_JNuevoActionPerformed
-
-    private void JGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JGuardarActionPerformed
-        
-        try{
-            switch((String) JRubro.getSelectedItem()){
-                case ("Comestible"):
+        } else if (JBuscar.getText().equals("Guardar")){
+            try{
+                switch((String) JRubro.getSelectedItem()){
+                    case ("Comestible"):
                             Producto C1 = new Comestible(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
                             boolean Comprobar=Menu_General.getProductos().add((Comestible)C1);
                             if(Comprobar==true){
@@ -272,7 +236,7 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
                             } else if (Comprobar==false){
                                  JOptionPane.showMessageDialog(this, "El producto ya esta en el Mercado.");
                             }
-                    break;
+                        break;
                 case ("Limpieza"):
                             Producto C2 = new Limpieza(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
                             boolean Comprobar_2=Menu_General.getProductos().add((Limpieza)C2);
@@ -295,28 +259,58 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
         }catch(NumberFormatException E){
             System.out.println("Numeros Erroneos.");
         }
-    }//GEN-LAST:event_JGuardarActionPerformed
+        }
+    }//GEN-LAST:event_JBuscarActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void JNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JNuevoActionPerformed
+        if(JBuscar.getText().equals("Buscar")){
+            Limpiar();
+        } else if(JBuscar.getText().equals("Guardar")){
+            Llenar();
+        }
+        
+    }//GEN-LAST:event_JNuevoActionPerformed
+
+    private void JEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JEliminarActionPerformed
         for(Producto P2: Menu_General.getProductos()){
             if(P2.getCodigo()==Integer.parseInt(JCodigo.getText())){
                 Menu_General.getProductos().remove(P2);
+                JOptionPane.showMessageDialog(this, "El producto ha sido removido.");
                 break;
+            } else if(P2.getCodigo()!=Integer.parseInt(JCodigo.getText())){
+                JOptionPane.showMessageDialog(this, "No se ha encontrado el Producto o no Existe.");
             }
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_JEliminarActionPerformed
 
-
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+    private final void Limpiar(){
+        JBuscar.setText("Guardar");
+        JDescripcion.setText("");
+        JPrecio.setText("");
+        JStock.setText("");
+        JCodigo.setText("");
+        JEliminar.setEnabled(false);
+    }
+    private final void Llenar(){
+        JBuscar.setText("Buscar");
+        JDescripcion.setText("");
+        JPrecio.setText("");
+        JStock.setText("");
+        JCodigo.setText("");
+        JEliminar.setEnabled(true);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBuscar;
     private javax.swing.JTextField JCodigo;
     private javax.swing.JTextField JDescripcion;
-    private javax.swing.JButton JGuardar;
+    private javax.swing.JButton JEliminar;
     private javax.swing.JButton JNuevo;
     private javax.swing.JTextField JPrecio;
     private javax.swing.JComboBox<String> JRubro;
     private javax.swing.JTextField JStock;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

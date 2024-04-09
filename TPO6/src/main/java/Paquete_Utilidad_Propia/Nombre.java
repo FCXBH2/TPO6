@@ -97,9 +97,7 @@ public class Nombre extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JCaracterBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCaracterBuscarKeyPressed
-
-        
-        if(evt.getKeyCode()==10){
+            if(evt.getKeyCode()==10){
             TreeSet<Producto> TSP = new TreeSet();
             for(int i=0;i<DTM.getRowCount();i++){
                 DTM.removeRow(0);

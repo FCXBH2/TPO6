@@ -35,12 +35,12 @@ public class Menu_General extends javax.swing.JFrame {
         Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         Administracion = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        JProductos = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         Consultas = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        JRubro = new javax.swing.JMenuItem();
+        JNombre = new javax.swing.JMenuItem();
+        JPrecio = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 600));
@@ -62,48 +62,51 @@ public class Menu_General extends javax.swing.JFrame {
 
         Administracion.setText("Administracion");
         Administracion.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        Administracion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Administracion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jMenuItem4.setText("Productos");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        JProductos.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
+        JProductos.setText("Productos");
+        JProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                JProductosActionPerformed(evt);
             }
         });
-        Administracion.add(jMenuItem4);
+        Administracion.add(JProductos);
 
         jMenuBar1.add(Administracion);
 
         jMenu1.setEnabled(false);
         jMenu1.setFocusable(false);
-        jMenu1.setPreferredSize(new java.awt.Dimension(80, 6));
+        jMenu1.setPreferredSize(new java.awt.Dimension(150, 6));
         jMenuBar1.add(jMenu1);
 
         Consultas.setText("Consultas");
         Consultas.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
 
-        jMenuItem1.setText("Por Rubro");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        JRubro.setText("Por Rubro");
+        JRubro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                JRubroActionPerformed(evt);
             }
         });
-        Consultas.add(jMenuItem1);
+        Consultas.add(JRubro);
 
-        jMenuItem2.setText("Por Nombre");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        JNombre.setText("Por Nombre");
+        JNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                JNombreActionPerformed(evt);
             }
         });
-        Consultas.add(jMenuItem2);
+        Consultas.add(JNombre);
 
-        jMenuItem3.setText("Por Precio");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        JPrecio.setText("Por Precio");
+        JPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                JPrecioActionPerformed(evt);
             }
         });
-        Consultas.add(jMenuItem3);
+        Consultas.add(JPrecio);
 
         jMenuBar1.add(Consultas);
 
@@ -124,37 +127,37 @@ public class Menu_General extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void JProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JProductosActionPerformed
             Gestionar_Productos Gestionar_Producto = new Gestionar_Productos();
             Escritorio.removeAll();
             Escritorio.repaint();
             Gestionar_Producto.setVisible(true);
             Escritorio.add(Gestionar_Producto);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_JProductosActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void JRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRubroActionPerformed
             Rubro R1 = new Rubro();
             Escritorio.removeAll();
             Escritorio.repaint();
             R1.setVisible(true);
             Escritorio.add(R1);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_JRubroActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void JNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JNombreActionPerformed
         Nombre N1 = new Nombre();
         Escritorio.removeAll();
         Escritorio.repaint();
         N1.setVisible(true);
         Escritorio.add(N1);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_JNombreActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void JPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JPrecioActionPerformed
         Precio P1 = new Precio();
         Escritorio.removeAll();
         Escritorio.repaint();
         P1.setVisible(true);
         Escritorio.add(P1);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_JPrecioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,11 +200,11 @@ public class Menu_General extends javax.swing.JFrame {
     private javax.swing.JMenu Administracion;
     private javax.swing.JMenu Consultas;
     private javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JMenuItem JNombre;
+    private javax.swing.JMenuItem JPrecio;
+    private javax.swing.JMenuItem JProductos;
+    private javax.swing.JMenuItem JRubro;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }
