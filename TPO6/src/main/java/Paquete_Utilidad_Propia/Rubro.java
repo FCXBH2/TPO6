@@ -24,14 +24,7 @@ public class Rubro extends javax.swing.JInternalFrame {
         initComponents();
         T1.setColumnIdentifiers(new Object[]{"Codigo","Descripcion","Precio","Stock","Rubro"});
         JTableC.setModel(T1);
-        for(int i=0;i<T1.getRowCount();i++){
-            T1.removeRow(0);
-        }
-        for(Producto C5:Menu_General.getProductos()){
-            if(C5 instanceof Comestible){
-                T1.addRow(new Object[]{C5.getCodigo(),C5.getDescripcion(),C5.getPrecio(),C5.getStock(),C5.getRubro()});
-            }
-        }
+        
     }
 
     /**
@@ -62,7 +55,9 @@ public class Rubro extends javax.swing.JInternalFrame {
                 "Codigo", "Descripcion", "Precio", "Stock", "Rubro"
             }
         ));
+        JTableC.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(JTableC);
+        JTableC.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jLabel2.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -70,6 +65,11 @@ public class Rubro extends javax.swing.JInternalFrame {
 
         JCombo.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         JCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Limpieza", "Perfumeria" }));
+        JCombo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JComboMouseClicked(evt);
+            }
+        });
         JCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JComboActionPerformed(evt);
@@ -92,11 +92,11 @@ public class Rubro extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 55, Short.MAX_VALUE)
+                .addGap(18, 53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -104,13 +104,11 @@ public class Rubro extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboActionPerformed
-        for(int i=0;i<T1.getRowCount();i++){
-            T1.removeRow(0);
-        }
+        
         switch((String) JCombo.getSelectedItem()){
             case ("Comestible"):
-                for(int i=0;i<T1.getRowCount();i++){
-                     T1.removeRow(0);
+                for (int i=T1.getRowCount();i>0;i--) {
+                    T1.removeRow(i);
                 }
                 for(Producto C5:Menu_General.getProductos()){
                     if(C5 instanceof Comestible){
@@ -119,8 +117,8 @@ public class Rubro extends javax.swing.JInternalFrame {
                 }
                 break;
             case ("Limpieza"):
-                for(int i=0;i<T1.getRowCount();i++){
-                     T1.removeRow(0);
+                for (int i=T1.getRowCount();i>0;i--) {
+                    T1.removeRow(i);
                 }
                 for(Producto C5:Menu_General.getProductos()){
                     if(C5 instanceof Limpieza){
@@ -129,8 +127,8 @@ public class Rubro extends javax.swing.JInternalFrame {
                 }
                 break;
             case ("Perfumeria"):
-                for(int i=0;i<T1.getRowCount();i++){
-                     T1.removeRow(0);
+                for (int i=T1.getRowCount();i>0;i--) {
+                    T1.removeRow(i);
                 }
                 for(Producto C5:Menu_General.getProductos()){
                     if(C5 instanceof Perfumeria){
@@ -140,6 +138,10 @@ public class Rubro extends javax.swing.JInternalFrame {
                 break;
         }
     }//GEN-LAST:event_JComboActionPerformed
+
+    private void JComboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JComboMouseClicked
+        
+    }//GEN-LAST:event_JComboMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

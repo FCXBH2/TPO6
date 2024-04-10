@@ -6,8 +6,6 @@ package Paquete_Utilidad_Propia;
 
 import Paquete_Utilidad_Propia.Clases_Utilidad.Producto;
 import com.mycompany.tpo6.Menu_General;
-import java.util.ArrayList;
-import java.util.TreeSet;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -98,23 +96,15 @@ public class Nombre extends javax.swing.JInternalFrame {
 
     private void JCaracterBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCaracterBuscarKeyPressed
             if(evt.getKeyCode()==10){
-            TreeSet<Producto> TSP = new TreeSet();
-            for(int i=0;i<DTM.getRowCount();i++){
-                DTM.removeRow(0);
-            }
+            for (int i=DTM.getRowCount();i>0;i--) {
+                    DTM.removeRow(i);
+                }
             for(Producto P1: Menu_General.getProductos()){
                 if(P1.getDescripcion().length()>=JCaracterBuscar.getText().length()){
                     if(JCaracterBuscar.getText().substring(0,JCaracterBuscar.getText().length()).equals(P1.getDescripcion().substring(0,JCaracterBuscar.getText().length()))){
-                        
-                        TSP.add(P1);
+                        DTM.addRow(new Object[]{P1.getCodigo(),P1.getDescripcion(),P1.getPrecio(),P1.getStock(),P1.getRubro()});
                      }
-                    if(P1.getDescripcion().contains(JCaracterBuscar.getText().substring(0))){
-                        
-                    }
                  }
-            }
-            for(Producto P2: TSP){
-                DTM.addRow(new Object[]{P2.getCodigo(),P2.getDescripcion(),P2.getPrecio(),P2.getStock(),P2.getRubro()});
             }
         }
     }//GEN-LAST:event_JCaracterBuscarKeyPressed

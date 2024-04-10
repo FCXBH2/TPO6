@@ -232,7 +232,7 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
                 switch((String) JRubro.getSelectedItem()){
                     case ("Comestible"):
                             Producto C1 = new Comestible(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
-                            boolean Comprobar=Menu_General.getProductos().add((Comestible)C1);
+                            boolean Comprobar=Menu_General.getProductos().add(C1);
                             if(Comprobar==true){
                                 JOptionPane.showMessageDialog(this, "Producto Agregado.");
                             } else if (Comprobar==false){
@@ -241,7 +241,7 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
                         break;
                 case ("Limpieza"):
                             Producto C2 = new Limpieza(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
-                            boolean Comprobar_2=Menu_General.getProductos().add((Limpieza)C2);
+                            boolean Comprobar_2=Menu_General.getProductos().add(C2);
                             if(Comprobar_2==true){
                                 JOptionPane.showMessageDialog(this, "Producto Agregado.");
                             } else if (Comprobar_2==false){
@@ -250,7 +250,7 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
                     break;
                 case ("Perfumeria"):
                             Producto C3 = new Perfumeria(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
-                            boolean Comprobar_3=Menu_General.getProductos().add((Perfumeria)C3);
+                            boolean Comprobar_3=Menu_General.getProductos().add(C3);
                             if(Comprobar_3==true){
                                 JOptionPane.showMessageDialog(this, "Producto Agregado.");
                             } else if (Comprobar_3==false){
