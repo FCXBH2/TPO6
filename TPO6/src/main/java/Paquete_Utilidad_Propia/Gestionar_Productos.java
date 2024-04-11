@@ -67,11 +67,6 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
         JCodigo.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
         JCodigo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         JCodigo.setBorder(new javax.swing.border.MatteBorder(null));
-        JCodigo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JCodigoMouseClicked(evt);
-            }
-        });
 
         JBuscar.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         JBuscar.setText("Buscar");
@@ -328,29 +323,28 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
         } else if(JBuscar.getText().equals("Guardar")){
             Llenar();
         }
-        
     }//GEN-LAST:event_JNuevoActionPerformed
 
     private void JEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JEliminarActionPerformed
-        for(Producto P2: Menu_General.getProductos()){
-            if(P2.getCodigo()==Integer.parseInt(JCodigo.getText())){
-                Menu_General.getProductos().remove(P2);
-                JOptionPane.showMessageDialog(this, "El producto ha sido removido.");
-                
-                break;
-            } else if(P2.getCodigo()!=Integer.parseInt(JCodigo.getText())){
-                JOptionPane.showMessageDialog(this, "No se ha encontrado el Producto o no Existe.");
+        
+        if(JCodigo.getText().isBlank()==false){
+            for(Producto P1: Menu_General.getProductos()){
+                if(P1.getCodigo()==Integer.parseInt(JCodigo.getText())){
+                    byte B1=(byte) JOptionPane.showConfirmDialog(this, "¿Eliminar Producto?","Confirmacion",JOptionPane.YES_NO_OPTION);
+                    if(B1==JOptionPane.YES_OPTION){
+                        Menu_General.getProductos().remove(P1);
+                        JOptionPane.showMessageDialog(this, "Producto removido.");
+                    }
+                }
             }
+        } else {
+            JOptionPane.showMessageDialog(this, "Ingresar codigo a Buscar.");
         }
     }//GEN-LAST:event_JEliminarActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void JCodigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JCodigoMouseClicked
-        
-    }//GEN-LAST:event_JCodigoMouseClicked
     private final void Limpiar(){
         JBuscar.setText("Guardar");
         JDescripcion.setText("");

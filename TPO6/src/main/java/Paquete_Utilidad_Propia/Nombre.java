@@ -53,8 +53,8 @@ public class Nombre extends javax.swing.JInternalFrame {
         JCaracterBuscar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         JCaracterBuscar.setBorder(new javax.swing.border.MatteBorder(null));
         JCaracterBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                JCaracterBuscarKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JCaracterBuscarKeyReleased(evt);
             }
         });
 
@@ -97,13 +97,8 @@ public class Nombre extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JCaracterBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCaracterBuscarKeyPressed
-            if(evt.getKeyCode()==10){
-                String[] Arrays = new String[JCaracterBuscar.getText().length()];
-                for(int j=0;j<JCaracterBuscar.getText().length();j++){
-                    Arrays[j]=JCaracterBuscar.getText().substring(j, j+1);
-                }
-                for (int i=DTM.getRowCount()-1;i>=0;i--) {
+    private void JCaracterBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCaracterBuscarKeyReleased
+        for (int i=DTM.getRowCount()-1;i>=0;i--) {
                     DTM.removeRow(i);
                 }
             
@@ -114,8 +109,7 @@ public class Nombre extends javax.swing.JInternalFrame {
                     }
                 }
             }
-        }
-    }//GEN-LAST:event_JCaracterBuscarKeyPressed
+    }//GEN-LAST:event_JCaracterBuscarKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
