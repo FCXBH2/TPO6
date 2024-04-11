@@ -38,6 +38,8 @@ public class Nombre extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JTable = new javax.swing.JTable();
 
+        setClosable(true);
+
         jLabel1.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Listado por Nombre");
@@ -96,14 +98,19 @@ public class Nombre extends javax.swing.JInternalFrame {
 
     private void JCaracterBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCaracterBuscarKeyPressed
             if(evt.getKeyCode()==10){
-            for (int i=DTM.getRowCount();i>0;i--) {
+                String[] Arrays = new String[JCaracterBuscar.getText().length()];
+                for(int j=0;j<JCaracterBuscar.getText().length();j++){
+                    Arrays[j]=JCaracterBuscar.getText().substring(j, j+1);
+                }
+                for (int i=DTM.getRowCount()-1;i>=0;i--) {
                     DTM.removeRow(i);
                 }
+            
             for(Producto P1: Menu_General.getProductos()){
                 if(P1.getDescripcion().length()>=JCaracterBuscar.getText().length()){
-                    if(JCaracterBuscar.getText().substring(0,JCaracterBuscar.getText().length()).equals(P1.getDescripcion().substring(0,JCaracterBuscar.getText().length()))){
-                        DTM.addRow(new Object[]{P1.getCodigo(),P1.getDescripcion(),P1.getPrecio(),P1.getStock(),P1.getRubro()});
-                     }
+                    if(P1.getDescripcion().contains(Arrays[0])){
+                        
+                    }
                  }
             }
         }

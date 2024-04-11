@@ -43,8 +43,10 @@ public class Menu_General extends javax.swing.JFrame { //Me ha costado hacerlo s
         JPrecio = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("De todo S.A");
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
+        setResizable(false);
 
         Escritorio.setMaximumSize(new java.awt.Dimension(800, 574));
         Escritorio.setMinimumSize(new java.awt.Dimension(800, 574));
@@ -78,7 +80,7 @@ public class Menu_General extends javax.swing.JFrame { //Me ha costado hacerlo s
 
         jMenu1.setEnabled(false);
         jMenu1.setFocusable(false);
-        jMenu1.setPreferredSize(new java.awt.Dimension(150, 6));
+        jMenu1.setPreferredSize(new java.awt.Dimension(250, 6));
         jMenuBar1.add(jMenu1);
 
         Consultas.setText("Consultas");

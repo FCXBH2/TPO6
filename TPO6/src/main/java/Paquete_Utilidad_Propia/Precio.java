@@ -79,11 +79,6 @@ public class Precio extends javax.swing.JInternalFrame {
         jButton1.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
         jButton1.setText("Buscar");
         jButton1.setBorder(new javax.swing.border.MatteBorder(null));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -129,11 +124,7 @@ public class Precio extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        for (int i=T1.getRowCount();i>0;i--) {
+        for (int i=T1.getRowCount()-1;i>=0;i--) {
                     T1.removeRow(i);
                 }
         for(Producto P1:Menu_General.getProductos()){
@@ -141,7 +132,7 @@ public class Precio extends javax.swing.JInternalFrame {
                 T1.addRow(new Object[]{P1.getCodigo(),P1.getDescripcion(),P1.getDescripcion(),P1.getPrecio(),P1.getStock(),P1.getStock()});
             }
         }
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

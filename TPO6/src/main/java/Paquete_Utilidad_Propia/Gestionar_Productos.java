@@ -67,6 +67,11 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
         JCodigo.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
         JCodigo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         JCodigo.setBorder(new javax.swing.border.MatteBorder(null));
+        JCodigo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JCodigoMouseClicked(evt);
+            }
+        });
 
         JBuscar.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         JBuscar.setText("Buscar");
@@ -218,7 +223,8 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
     private void JBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBuscarActionPerformed
         
         if(JBuscar.getText().equals("Buscar")){
-            for(Producto P1:Menu_General.getProductos()){
+            if(JCodigo.getText().isBlank()==false){
+                for(Producto P1:Menu_General.getProductos()){
                 if(P1.getCodigo()==Integer.parseInt(JCodigo.getText())){
                 JDescripcion.setText(P1.getDescripcion());
                 JPrecio.setText(""+P1.getPrecio());
@@ -226,39 +232,90 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
                 JStock.setText(""+P1.getStock());
                 break;
                 }
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe haber algun valor numerico para buscar o agregar el Codigo.");
             }
         } else if (JBuscar.getText().equals("Guardar")){
             try{ //He usado 3 clases que heredan de producto, para poder identificar los rubros, usando instanceof.
                 switch((String) JRubro.getSelectedItem()){
                     case ("Comestible"):
-                            Producto C1 = new Comestible(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
-                            boolean Comprobar=Menu_General.getProductos().add(C1);
-                            if(Comprobar==true){
-                                JOptionPane.showMessageDialog(this, "Producto Agregado.");
-                            } else if (Comprobar==false){
-                                 JOptionPane.showMessageDialog(this, "El producto ya esta en el Mercado.");
+                            if(JCodigo.getText().isBlank()==false && JDescripcion.getText().isBlank()==false && JPrecio.getText().isBlank()==false && JStock.getText().isBlank()==false){
+                                Producto C1 = new Comestible(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
+                                boolean Comprobar=Menu_General.getProductos().add(C1);
+                                if(Comprobar==true){
+                                    JOptionPane.showMessageDialog(this, "Producto Agregado.");
+                                } else if (Comprobar==false){
+                                    JOptionPane.showMessageDialog(this, "El producto ya esta en el Mercado.");
+                                  }
+                            } else {
+                                if(JCodigo.getText().isBlank()==true){
+                                    JOptionPane.showMessageDialog(this, "Debe haber algun valor numerico para buscar o agregar el Codigo.");
+                                }
+                                if(JDescripcion.getText().isBlank()==true){
+                                    JOptionPane.showMessageDialog(this, "Agrega una Descripcion.");
+                                }
+                                if(JPrecio.getText().isBlank()==true){
+                                    JOptionPane.showMessageDialog(this, "Agrega un valor Numerico.");
+                                }
+                                if(JStock.getText().isBlank()==true){
+                                    JOptionPane.showMessageDialog(this, "Agrega la cantidad de Stock que tiene el Producto.");
+                                }
+                                
                             }
                         break;
                 case ("Limpieza"):
-                            Producto C2 = new Limpieza(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
-                            boolean Comprobar_2=Menu_General.getProductos().add(C2);
-                            if(Comprobar_2==true){
-                                JOptionPane.showMessageDialog(this, "Producto Agregado.");
-                            } else if (Comprobar_2==false){
-                                 JOptionPane.showMessageDialog(this, "El producto ya esta en el Mercado.");
+                            if(JCodigo.getText().isBlank()==false && JDescripcion.getText().isBlank()==false && JPrecio.getText().isBlank()==false && JStock.getText().isBlank()==false){
+                                Producto C1 = new Limpieza(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
+                                boolean Comprobar=Menu_General.getProductos().add(C1);
+                                if(Comprobar==true){
+                                    JOptionPane.showMessageDialog(this, "Producto Agregado.");
+                                } else if (Comprobar==false){
+                                    JOptionPane.showMessageDialog(this, "El producto ya esta en el Mercado.");
+                                  }
+                            } else {
+                                if(JCodigo.getText().isBlank()==true){
+                                    JOptionPane.showMessageDialog(this, "Debe haber algun valor numerico para buscar o agregar el Codigo.");
+                                }
+                                if(JDescripcion.getText().isBlank()==true){
+                                    JOptionPane.showMessageDialog(this, "Agrega una Descripcion.");
+                                }
+                                if(JPrecio.getText().isBlank()==true){
+                                    JOptionPane.showMessageDialog(this, "Agrega un valor Numerico.");
+                                }
+                                if(JStock.getText().isBlank()==true){
+                                    JOptionPane.showMessageDialog(this, "Agrega la cantidad de Stock que tiene el Producto.");
+                                }
+                                
                             }
                     break;
                 case ("Perfumeria"):
-                            Producto C3 = new Perfumeria(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
-                            boolean Comprobar_3=Menu_General.getProductos().add(C3);
-                            if(Comprobar_3==true){
-                                JOptionPane.showMessageDialog(this, "Producto Agregado.");
-                            } else if (Comprobar_3==false){
-                                 JOptionPane.showMessageDialog(this, "El producto ya esta en el Mercado.");
+                            if(JCodigo.getText().isBlank()==false && JDescripcion.getText().isBlank()==false && JPrecio.getText().isBlank()==false && JStock.getText().isBlank()==false){
+                                Producto C1 = new Perfumeria(Integer.parseInt(JCodigo.getText()),JDescripcion.getText(),Double.parseDouble(JPrecio.getText()),Integer.parseInt(JStock.getText()),(String)JRubro.getSelectedItem());
+                                boolean Comprobar=Menu_General.getProductos().add(C1);
+                                if(Comprobar==true){
+                                    JOptionPane.showMessageDialog(this, "Producto Agregado.");
+                                } else if (Comprobar==false){
+                                    JOptionPane.showMessageDialog(this, "El producto ya esta en el Mercado.");
+                                  }
+                            } else {
+                                if(JCodigo.getText().isBlank()==true){
+                                    JOptionPane.showMessageDialog(this, "Debe haber algun valor numerico para buscar o agregar el Codigo.");
+                                }
+                                if(JDescripcion.getText().isBlank()==true){
+                                    JOptionPane.showMessageDialog(this, "Agrega una Descripcion.");
+                                }
+                                if(JPrecio.getText().isBlank()==true){
+                                    JOptionPane.showMessageDialog(this, "Agrega un valor Numerico.");
+                                }
+                                if(JStock.getText().isBlank()==true){
+                                    JOptionPane.showMessageDialog(this, "Agrega la cantidad de Stock que tiene el Producto.");
+                                }
+                                
                             }
                             break;
             }
-        }catch(NumberFormatException E){ //No recuerdo como hacer focus en un textfield cuando una excepcion ocurre en dicho textfield.
+        }catch(NumberFormatException E){ //No recuerdo como hacer focus en un textfield cuando una excepcion(opcional ser excepcion) ocurre en dicho textfield.
             JOptionPane.showMessageDialog(this, "Numero Erroneo.");
             
         }
@@ -279,6 +336,7 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
             if(P2.getCodigo()==Integer.parseInt(JCodigo.getText())){
                 Menu_General.getProductos().remove(P2);
                 JOptionPane.showMessageDialog(this, "El producto ha sido removido.");
+                
                 break;
             } else if(P2.getCodigo()!=Integer.parseInt(JCodigo.getText())){
                 JOptionPane.showMessageDialog(this, "No se ha encontrado el Producto o no Existe.");
@@ -287,8 +345,12 @@ public class Gestionar_Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_JEliminarActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void JCodigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JCodigoMouseClicked
+        
+    }//GEN-LAST:event_JCodigoMouseClicked
     private final void Limpiar(){
         JBuscar.setText("Guardar");
         JDescripcion.setText("");

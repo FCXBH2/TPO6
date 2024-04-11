@@ -107,7 +107,7 @@ public class Rubro extends javax.swing.JInternalFrame {
         
         switch((String) JCombo.getSelectedItem()){
             case ("Comestible"):
-                for (int i=T1.getRowCount();i>0;i--) {
+                for (int i=T1.getRowCount()-1;i>=0;i--) {
                     T1.removeRow(i);
                 }
                 for(Producto C5:Menu_General.getProductos()){
@@ -117,7 +117,7 @@ public class Rubro extends javax.swing.JInternalFrame {
                 }
                 break;
             case ("Limpieza"):
-                for (int i=T1.getRowCount();i>0;i--) {
+                for (int i=T1.getRowCount()-1;i>=0;i--) {
                     T1.removeRow(i);
                 }
                 for(Producto C5:Menu_General.getProductos()){
@@ -127,7 +127,7 @@ public class Rubro extends javax.swing.JInternalFrame {
                 }
                 break;
             case ("Perfumeria"):
-                for (int i=T1.getRowCount();i>0;i--) {
+                for (int i=T1.getRowCount()-1;i>=0;i--) {
                     T1.removeRow(i);
                 }
                 for(Producto C5:Menu_General.getProductos()){
