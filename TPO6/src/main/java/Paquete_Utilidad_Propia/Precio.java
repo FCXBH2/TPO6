@@ -20,6 +20,9 @@ public class Precio extends javax.swing.JInternalFrame {
     public Precio() {
         initComponents();
         T1.setColumnIdentifiers(new Object[]{"Codigo","Descripcion","Precio","Stock","Rubro"});
+        for(Producto P:Menu_General.getProductos()){
+            T1.addRow(new Object[]{P.getCodigo(),P.getDescripcion(),P.getPrecio(),P.getStock(),P.getRubro()});
+        }
         JTablet.setModel(T1);
     }
 

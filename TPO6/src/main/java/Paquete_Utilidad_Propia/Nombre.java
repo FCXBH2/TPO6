@@ -20,6 +20,9 @@ public class Nombre extends javax.swing.JInternalFrame {
     public Nombre() {
         initComponents();
         DTM.setColumnIdentifiers(new Object[]{"Codigo","Descripcion","Precio","Stock","Rubro"});
+        for(Producto P:Menu_General.getProductos()){
+            DTM.addRow(new Object[]{P.getCodigo(),P.getDescripcion(),P.getPrecio(),P.getStock(),P.getRubro()});
+        }
         JTable.setModel(DTM);
     }
 
