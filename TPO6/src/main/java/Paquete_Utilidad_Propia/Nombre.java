@@ -39,6 +39,7 @@ public class Nombre extends javax.swing.JInternalFrame {
         JTable = new javax.swing.JTable();
 
         setClosable(true);
+        setResizable(true);
 
         jLabel1.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -108,10 +109,10 @@ public class Nombre extends javax.swing.JInternalFrame {
             
             for(Producto P1: Menu_General.getProductos()){
                 if(P1.getDescripcion().length()>=JCaracterBuscar.getText().length()){
-                    if(P1.getDescripcion().contains(Arrays[0])){
-                        
+                    if(P1.getDescripcion().substring(0, JCaracterBuscar.getText().toLowerCase().length()).equalsIgnoreCase(JCaracterBuscar.getText().substring(0, JCaracterBuscar.getText().toLowerCase().length()))){
+                        DTM.addRow(new Object[]{P1.getCodigo(),P1.getDescripcion(),P1.getPrecio(),P1.getStock(),P1.getRubro()});
                     }
-                 }
+                }
             }
         }
     }//GEN-LAST:event_JCaracterBuscarKeyPressed
